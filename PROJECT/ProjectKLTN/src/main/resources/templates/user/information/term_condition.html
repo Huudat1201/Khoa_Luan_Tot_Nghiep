@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}">
+
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/termCondition}">Điều Khoản & Quy Định</a></li>
+		</ul>
+	</th:block>
+
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<div class="about-us clearfix shop-content">
+				<div class="col-sm-12">
+					<div class="cms-block">
+						<h4>Điều khoản sử dụng</h4>
+						<p>
+							<strong>Tài khoản của khách hàng</strong><br> Khi sử dụng
+							dịch vụ của Dathau Smart Farm, quý khách sẽ cung cấp thông tin cá
+							nhân như địa chỉ email, mật khẩu và họ tên để tạo một tài khoản.
+							Quá trình sử dụng và bảo mật thông tin tài khoản là trách nhiệm
+							và quyền lợi của quý khách. Thông tin trong tài khoản như tên
+							tuổi, địa chỉ, và các chi tiết khác sẽ giúp Dathau Smart Farm
+							phục vụ quý khách tốt hơn.
+							<br> Trong trường hợp thông tin quý khách cung cấp không đầy
+							đủ hoặc không chính xác, dẫn đến khả năng không thể giao hàng
+							thành công, Dathau Smart Farm có quyền từ chối phục vụ và giao
+							hàng mà không chịu trách nhiệm. Quý khách vui lòng cập nhật thông
+							tin cá nhân trong tài khoản khi có bất kỳ thay đổi nào. Để bảo vệ
+							thông tin cá nhân, quý khách hãy giữ kín mật khẩu và tài khoản
+							của mình. Quý khách hoàn toàn chịu trách nhiệm đối với tất cả các
+							hoạt động diễn ra qua tài khoản của mình. Chúng tôi khuyến khích
+							quý khách đăng xuất khỏi tài khoản sau mỗi lần sử dụng để bảo vệ
+							an toàn thông tin cá nhân.
+							<br><br> <strong>Quyền lợi bảo mật thông tin của khách
+								hàng</strong><br> Khi quý khách sử dụng dịch vụ tại Dathau Smart
+							Farm, chúng tôi cam kết rằng mọi thông tin quý khách cung cấp sẽ
+							chỉ được sử dụng nhằm mục đích nâng cao chất lượng dịch vụ của
+							chúng tôi. Chúng tôi cam đoan rằng thông tin này sẽ không bao giờ
+							được chuyển giao cho bên thứ ba vì mục đích thương mại. Tất cả
+							thông tin của quý khách tại Dathau Smart Farm sẽ được bảo mật
+							chặt chẽ. Chúng tôi cam kết duy trì sự an toàn và bảo mật dữ liệu
+							cá nhân. Chỉ khi có yêu cầu từ cơ quan pháp luật, chúng tôi sẽ
+							cung cấp thông tin theo đúng quy định.
+							<br> Chúng tôi coi trọng việc bảo vệ quyền riêng tư của quý
+							khách và cam kết tuân thủ mọi quy định về bảo vệ thông tin cá
+							nhân. Nếu quý khách có bất kỳ câu hỏi hoặc lo ngại nào về việc sử
+							dụng thông tin cá nhân, vui lòng liên hệ với chúng tôi để được hỗ
+							trợ thêm.
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

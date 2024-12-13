@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/shop/cart}">Giỏ hàng</a></li>
+			<li><a th:href="@{/shop/cart/checkout}">Thanh toán</a></li>
+		</ul>
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<div class="row"
+				style="display: flex; justify-content: center; align-items: center;">
+				<div class="col-sm-9">
+					<h1>Form Thanh Toán VNPay</h1>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<strong>Tổng số tiền: <span th:text="${totalAmount}">0</span>
+									VND
+								</strong>
+							</h4>
+						</div>
+					</div>
+					<form th:action="@{/api/v1/payment/vn-pay}" method="get">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<input type="hidden" name="amount" th:value="${totalAmount}" />
+								<label class="panel-title" for="bankCode"><strong>Chọn
+										ngân hàng:</strong></label> <select class="form-control" id="bankCode"
+									name="bankCode" required>
+									<option value="NCB">Ngân hàng NCB</option>
+									<option value="VCB">Ngân hàng Vietcombank</option>
+									<option value="ACB">Ngân hàng ACB</option>
+								</select>
+							</div>
+						</div>
+						<div>
+							<div class="buttons">
+								<div class="pull-left">
+									<button type="button" class="btn btn-primary btn-warning"
+										onclick="goBack()">Trở lại</button>
+								</div>
+								<div class="pull-right">
+									<input type="submit" class="btn btn-primary" value="Thanh toán">
+								</div>
+							</div>
+
+							<script>
+								function goBack() {
+									window.location.href = 'http://localhost:8086/shop/cart/checkout';
+								}
+							</script>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+</html>

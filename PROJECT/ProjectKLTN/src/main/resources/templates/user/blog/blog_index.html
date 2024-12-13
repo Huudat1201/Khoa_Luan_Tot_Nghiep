@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/blog}">Blogs</a></li>
+		</ul>
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/home/bestseller.html"></div>
+	</th:block>
+
+	<main>
+		<div id="category-blogs" class="container">
+			<div id="content" class="col-sm-9">
+				<div class="row">
+					<th:block th:each="item: ${blogList}">
+						<div class="blog-layout product-list blog-category col-sm-6">
+							<div class="blog-block row">
+								<div class="blog-info col-lg-6">
+									<div class="image">
+										<a th:href="@{|/blog/${item.Namesearch}|}" class="blog-img">
+											<img style="height: 230px;" th:src="@{|/assets/images/imageBlog/${item.logo}|}"
+											alt="Consectetur adipiscing" th:title="${item.title}"
+											class="img-responsive" />
+										</a>
+										<div class="zoom-post">
+											<a class="hover-zoom"
+												th:href="@{|/assets/images/imageBlog/${item.banner}|}"
+												data-lightbox="example-set" title="Consectetur adipiscing"></a>
+											<a class="hover-post" th:href="@{|/blog/${item.namesearch}|}"></a>
+										</div>
+									</div>
+								</div>
+								<div class="caption-blog col-lg-6">
+									<div class="caption blog-description">
+										<span class="block-date"> [[${item.createday}]]</span>
+										<h4 class="blog-title">
+											<strong><a th:href="@{|/blog/${item.Namesearch}|}">[[${item.title}]]</a>
+											</strong>
+										</h4>
+										<div class="blog-text">
+											<span>[(${#strings.substring(item.description,0,80)})]...</span>
+										</div>
+										<div class="blog-group clearfix">
+											<a class="blog-read btn-default"
+												th:href="@{|/blog/${item.Namesearch}|}" title="Read More">Xem
+												thêm</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</th:block>
+				</div>
+				
+			</div>
+		</div>
+	</main>
+
+</body>
+<th:block id="material">
+	
+</th:block>
+</html>

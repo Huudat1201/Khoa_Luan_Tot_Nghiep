@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}">
+
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/delivery}">Thông tin giao hàng</a></li>
+		</ul>
+	</th:block>
+
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<div class="about-us clearfix shop-content">
+				<div class="col-sm-12">
+					<div class="cms-block">
+						<h4>Thông tin về quy trình đóng gói và vận chuyển nông sản</h4>
+						<p>Tại Dathau Smart Farm, chúng tôi cam kết mang đến các sản
+							phẩm nông sản tươi sạch và chất lượng cao nhất đến tay khách
+							hàng. Để đảm bảo điều này, mỗi đơn hàng được xử lý cẩn thận và tỉ
+							mỉ, từ khâu thu hoạch đến đóng gói. Đội ngũ của chúng tôi cần một
+							khoảng thời gian nhất định để kiểm tra kỹ lưỡng chất lượng và độ
+							tươi của sản phẩm trước khi đóng gói.</p>
+						<p>
+							Đối với các đơn hàng mà các sản phẩm đều <strong>có sẵn</strong>,
+							Dathau Smart Farm sẽ ưu tiên hoàn tất quá trình đóng gói trong
+							thời gian sớm nhất có thể và <strong>bàn giao cho đơn vị
+								vận chuyển</strong> để sản phẩm được giao tới bạn một cách nhanh chóng.
+							Trong trường hợp đơn hàng có sản phẩm <strong>theo mùa
+								vụ</strong> hoặc đang trong quá trình thu hoạch, chúng tôi sẽ <strong>ưu
+								tiên giao các sản phẩm có sẵn trước</strong> và thông báo thời gian dự
+							kiến cho các sản phẩm còn lại.
+						</p>
+						<p>Sự hài lòng của khách hàng là ưu tiên hàng đầu của chúng
+							tôi, và Dathau Smart Farm luôn sẵn sàng hỗ trợ bạn với bất kỳ
+							thắc mắc nào về quy trình đóng gói và vận chuyển.</p>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<!-- Cột bên trái chứa hình ảnh -->
+					<div class="col-md-6">
+						<img src="/assets/user/image/cache/catalog/banners/giao_hang.jpg"
+							alt="Hình ảnh sản phẩm" class="img-fluid">
+					</div>
+
+					<!-- Cột bên phải chứa nội dung chữ -->
+					<div class="col-md-6">
+						<h4>Thông tin về quy trình đóng gói và vận chuyển nông sản</h4>
+						<p>Tại Dathau Smart Farm, chúng tôi cam kết mang đến các sản
+							phẩm nông sản tươi sạch và chất lượng cao nhất đến tay khách
+							hàng. Mỗi đơn hàng được xử lý cẩn thận, từ khâu thu hoạch đến
+							đóng gói. Đội ngũ của chúng tôi kiểm tra kỹ lưỡng chất lượng và
+							độ tươi của sản phẩm trước khi đóng gói.</p>
+						<p>
+							Đối với đơn hàng có sản phẩm <strong>có sẵn</strong>, chúng tôi
+							ưu tiên hoàn tất đóng gói nhanh chóng và <strong>bàn
+								giao cho đơn vị vận chuyển</strong>. Trong trường hợp sản phẩm <strong>theo
+								mùa vụ</strong> hoặc đang thu hoạch, chúng tôi sẽ <strong>ưu
+								tiên giao hàng có sẵn trước</strong> và thông báo thời gian dự kiến cho
+							các sản phẩm còn lại.
+						</p>
+						<p>Sự hài lòng của khách hàng là ưu tiên hàng đầu, và Dathau
+							Smart Farm luôn sẵn sàng hỗ trợ bạn với mọi thắc mắc về quy trình
+							đóng gói và vận chuyển.</p>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<p>
+						Trong một số trường hợp, nếu sản phẩm <strong>không có
+							sẵn tại kho gần nhất</strong>, thời gian giao hàng có thể kéo dài hơn so
+						với dự kiến do quá trình điều phối sản phẩm giữa các kho. Để đảm
+						bảo khách hàng nhận được sản phẩm tốt nhất mà không phải bận tâm
+						về chi phí, Dathau Smart Farm sẽ <strong>hỗ trợ toàn bộ
+							phí vận chuyển phát sinh</strong>.
+					</p>
+					<p>
+						<strong>THỜI GIAN VÀ CHI PHÍ GIAO HÀNG</strong> có thể khác nhau
+						tùy theo từng khu vực trong lãnh thổ Việt Nam. Để biết thêm thông
+						tin chi tiết, quý khách có thể liên hệ trực tiếp với Dathau Smart
+						Farm.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

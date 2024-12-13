@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums"></th:block>
+	<th:block id="aside">
+		<div th:replace="/user/home/special_product.html"></div>
+	</th:block>
+
+	<th:block id="aside">
+		<div th:replace="/user/home/bestseller.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<div th:replace="/user/home/slideshow.html"></div>
+
+			<div th:replace="/user/home/latest_product.html"></div>
+
+			<div th:replace="/user/home/featured_products.html"></div>
+
+		</div>
+	</main>
+
+</body>
+<th:block id="material">
+
+</th:block>
+</html>

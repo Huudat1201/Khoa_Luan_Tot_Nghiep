@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}">
+<head>
+<meta charset="UTF-8" />
+<title>Blogs</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/blog}">Blogs</a></li>
+			<li><a>[[${blogInfor.title}]]</a></li>
+		</ul>
+	</th:block>
+
+	<th:block id="aside">
+
+		<div th:replace="/user/home/special_product.html"></div>
+
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<h2 class="page_title">
+				<strong>[[${blogInfor.title}]]</strong>
+			</h2>
+			<div class="">
+				<div class="article-container">
+					<div class="caption-blog">
+						<span class="block-date"><i>Ngày đăng: [[${blogInfor.createday}]]</i>
+							<span style="float: right;"><i>Người viết: [[${blogUser.fullname}]]</i></span>
+						</span>
+						<h3 class="article-page-title hidden">[[${blogInfor.title}]]</h3>
+						<div class="singblog-description blog-text" style="color: black;">
+							<span>[(${blogInfor.content})]</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+<th:block id="material">
+
+</th:block>
+</html>

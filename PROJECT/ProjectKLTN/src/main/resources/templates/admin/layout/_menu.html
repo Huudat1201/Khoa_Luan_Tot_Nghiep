@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<nav
+		class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega navbar-expand-md"
+		role="navigation">
+
+		<div class="navbar-header">
+			<div class="navbar-brand navbar-brand-center"
+				style="width: 100%; text-align: center;">
+				<a th:href="@{/admin/index}" style = "color: aliceblue;font-size: 22px;text-decoration: none;"> Dathau Smart Farm </a>
+			</div>
+		</div>
+
+
+		<div class="navbar-container container-fluid">
+			<!-- Navbar Collapse -->
+			<div class="collapse navbar-collapse navbar-collapse-toolbar"
+				id="site-navbar-collapse">
+
+				<ul class="nav navbar-toolbar navbar-left">
+					<li class="nav-item"><a class="nav-link"
+						href="http://localhost:8086/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Về
+							trang người dùng</a></li>
+				</ul>
+
+
+				<!-- Navbar Toolbar Right -->
+				<ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+
+					<li class="nav-item dropdown"><a
+						class="nav-link navbar-avatar" data-toggle="dropdown" href="#"
+						aria-expanded="false" data-animation="scale-up" role="button">
+							<span class="avatar avatar-online"> <img
+								src="/assets/admin/global/portraits/5.jpg" alt="..."> <i></i>
+						</span>
+					</a>
+						<div class="dropdown-menu" role="menu">
+							<a class="dropdown-item" th:href="@{/account/information}"
+								role="menuitem"><i class="icon wb-user" aria-hidden="true"></i>
+								Thông tin</a> <a class="dropdown-item"
+								th:href="@{/account/change-password}" role="menuitem"><i
+								class="icon wb-settings" aria-hidden="true"></i> Đổi mật khẩu</a>
+							<div class="dropdown-divider" role="presentation"></div>
+							<a class="dropdown-item" th:href="@{/logout}" role="menuitem"><i
+								class="icon wb-power" aria-hidden="true"></i> Đăng xuất</a>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</body>
+
+</html>

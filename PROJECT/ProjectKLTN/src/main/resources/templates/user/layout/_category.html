@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="main-category left-column-main-category hidden-sm hidden-xs">
+		<div class="vertical-category-wrapper navbar-collapse navbar-ex2-collapse">
+			<div class="vertical-category" data-more="More Categories" data-less="Less Categories">
+				<ul class="category-list nav navbar-nav">
+					<th:block th:each="item: ${categories}">
+						<li class="menu-item">
+							<a th:href="@{|/danh-sach/${item.Namesearch}|}">
+								[[${item.name}]]
+							</a>
+						</li>
+					</th:block>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<div class="special-countdown left-vertical-product">
+	<div class="countdown-carousel list-products">
+		<div class="page-title">
+			<h3>Được yêu thích nhất</h3>
+		</div>
+		<div class="countdown-inner">
+			<div id="special-count"
+				class="box-product special-count-carousel clearfix">
+				<th:block th:each="item: ${listFavorite}">
+					<div class="product-layout col-xs-12">
+						<div class="product-thumb transition">
+							<div class="image countdown-images">
+								<div class="special-image">
+									<a th:href="@{|/san-pham/${item.product.Namesearch}|}"> <img
+										th:src="@{|/assets/images/imageProduct/${item.product.image1}|}"
+										alt="Dell Laptop" title="Dell Laptop" class="img-responsive" />
+										<img class="img-responsive hover-img"
+										th:src="@{|/assets/images/imageProduct/${item.product.image2}|}"
+										title="Dell Laptop" alt="Dell Laptop" />
+									</a>
+									<div class="sale-text">
+										<span class="section-sale"></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="thumb-description">
+								<div class="caption">
+									<div class="desc-inner">
+										<h4 class="product-title">
+											<a th:href="@{|/san-pham/${item.product.Namesearch}|}">[[${item.product.name}]]</a>
+										</h4>
+										<p class="price">
+											<th:block th:if="${item.product.sales != 0}">
+												<span class="price-old">[[${#numbers.formatInteger(item.product.sales,3,'POINT')}]]₫</span>
+												<br>
+											</th:block>
+											[[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫
+										</p>
+
+										<div class="rating">
+											<th:block th:if="${item.totalStar != 0}">
+												<th:block
+													th:each="i: ${#numbers.sequence(1, item.totalStar)}">
+													<span class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span>
+												</th:block>
+											</th:block>
+											<th:block th:if="${item.totalStar != 5}">
+												<th:block
+													th:each="i: ${#numbers.sequence(1, 5 - item.totalStar)}">
+													<span class="fa fa-stack"><i
+														class="fa fa-star-o fa-stack-1x"></i></span>
+												</th:block>
+											</th:block>
+										</div>
+
+										<button type="button" class="addcart" title="Add to Cart"
+											th:onclick="location.href = '/san-pham/[(${item.product.Namesearch})]'">Xem
+											ngay</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</th:block>
+			</div>
+		</div>
+	</div>
+</div>

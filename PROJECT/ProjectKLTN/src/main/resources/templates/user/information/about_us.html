@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}">
+
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/aboutUs}">Về chúng tôi</a></li>
+		</ul>
+	</th:block>
+
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<div class="about-us clearfix shop-content">
+				<div class="col-sm-12">
+					<div class="cms-block">
+						<h4>Chào mừng đến với Dathau Smart Farm, nơi cung cấp thực
+							phẩm sạch, ngon, uy tín!</h4>
+						<p>
+							<strong>Dathau Smart Farm - Điểm Đến Cho Thực Phẩm Sạch
+								và Sức Khỏe Của Bạn</strong> <br> Chào mừng bạn đến với Dathau Smart
+							Farm! Chúng tôi cam kết mang đến cho khách hàng những sản phẩm
+							thực phẩm sạch, an toàn, và giàu dinh dưỡng. Tại đây, bạn có thể
+							tìm thấy các loại rau củ, trái cây tươi, và các sản phẩm từ nông
+							trại chất lượng cao, đảm bảo an toàn cho sức khỏe. <br> <strong>Sản
+								Phẩm Chất Lượng Cao:</strong> Tại Dathau Smart Farm, chúng tôi hiểu rằng
+							sức khỏe là trên hết. Vì vậy, tất cả các sản phẩm của chúng tôi
+							đều được trồng và chăm sóc kỹ lưỡng, không sử dụng hóa chất độc
+							hại. Chúng tôi cam kết mang đến cho bạn những sản phẩm sạch nhất,
+							an toàn nhất và tươi ngon nhất, trực tiếp từ nông trại đến bàn ăn
+							của bạn. <br> <strong>Cam Kết Của Chúng Tôi:</strong> Chúng
+							tôi luôn nỗ lực để trở thành nhà cung cấp thực phẩm sạch đáng tin
+							cậy nhất, nhằm mang lại sự yên tâm và hài lòng cho mọi khách
+							hàng. Hãy cùng Dathau Smart Farm chăm sóc sức khỏe của gia đình
+							bạn bằng những bữa ăn giàu dinh dưỡng từ thực phẩm sạch, uy tín
+							và chất lượng. <br>
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<img title="cms-img" th:src="@{/assets/user/image/cache/catalog/banners/raucu.jpg}"
+						alt="cms-img" class="img-responsive">
+				</div>
+				<div class="col-sm-12">
+					<div class="cms-block">
+						<p>
+							<strong>Chất Lượng và Uy Tín:</strong> Với phương châm "chất
+							lượng là uy tín," Dathau Smart Farm cam kết cung cấp các sản phẩm
+							sạch, đạt tiêu chuẩn an toàn cao nhất, và tốt cho sức khỏe. Mọi
+							nông sản đều được chăm sóc và kiểm tra kỹ lưỡng trước khi đến tay
+							khách hàng, tạo nên sự tin tưởng và an tâm tuyệt đối. <br> <strong>Trải
+								Nghiệm Mua Sắm Tuyệt Vời:</strong> Tại Dathau Smart Farm, chúng tôi không
+							chỉ mang đến sản phẩm chất lượng mà còn là một trải nghiệm mua
+							sắm thân thiện và tiện lợi. Đội ngũ nhân viên của chúng tôi luôn
+							sẵn sàng hỗ trợ bạn lựa chọn sản phẩm phù hợp nhất với nhu cầu
+							dinh dưỡng và sức khỏe của gia đình bạn. <br> <strong>Dịch
+								Vụ Chăm Sóc Khách Hàng Tận Tâm:</strong> Sự hài lòng của khách hàng là ưu
+							tiên hàng đầu của chúng tôi. Chúng tôi cung cấp dịch vụ hỗ trợ
+							tận tình, giải đáp mọi thắc mắc của khách hàng để đảm bảo rằng
+							bạn luôn cảm thấy thoải mái và tin tưởng khi mua sắm tại Dathau
+							Smart Farm. <br> Dathau Smart Farm tự hào là điểm đến lý
+							tưởng cho những ai quan tâm đến sức khỏe và mong muốn tìm kiếm
+							nguồn thực phẩm sạch, an toàn. Hãy để chúng tôi đồng hành cùng
+							bạn trong hành trình mang đến những bữa ăn chất lượng và an toàn
+							cho gia đình!
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+
+</html>

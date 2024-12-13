@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+</head>
+
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/account}">Tài khoản</a></li>
+			<li><a th:href="@{/account/address}">Sổ địa chỉ</a></li>
+			<li><a th:href="@{/account/address/add}">Thêm địa chỉ</a></li>
+		</ul>
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9" ng-app="address-add-app" ng-controller="address-add-ctrl">
+			<h2>Thêm địa chỉ giao hàng</h2>
+			<form action="#" th:action="@{/account/address/updateaddress/{id}(id=${addressUpdate.id})}" th:object="${addressUpdate}" method="POST">
+				<div class="form-horizontal">
+					<fieldset>
+						<div class="form-group required" id="divFullName">
+							<label id="lblFullName" class="col-sm-2 control-label">Họ
+								và tên</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{Fullname}" placeholder="Họ và tên"
+									class="form-control mb-4 col-4">
+							</div>
+						</div>
+						<div class="form-group required">
+							<label id="lblPhone" class="col-sm-2 control-label">Số
+								điện thoại</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{phone}" placeholder="Điện thoại"
+									class="form-control mb-4 col-4">
+							</div>
+						</div>
+						<div class="form-group required">
+							<label id="lblDetail" class="col-sm-2 control-label">Địa
+								chỉ nhận hàng</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{detail}" placeholder="Địa chỉ chi tiết"
+									class="form-control mb-4 col-4">
+							</div>
+						</div>
+						<div class="form-group required">
+							<label class="col-sm-2 control-label" id="lblProvince" for="input-payment-country">Tỉnh/
+								Thành phố</label>
+							<div class="col-sm-10">
+								<select id="province" th:field="*{province}">
+									<option value="" selected>Chọn tỉnh thành</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label class="col-sm-2 control-label" id="lblDistrict" for="input-payment-zone">Quận/
+								Huyện</label>
+							<div class="col-sm-10">
+								<select id="district" th:field="*{district}">
+									<option value="" selected>Chọn quận huyện</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label class="col-sm-2 control-label" id="lblWard" for="input-payment-zone">Phường/
+								Xã</label>
+							<div class="col-sm-10">
+								<select id="ward" th:field="*{ward}">
+									<option value="" selected>Chọn phường xã</option>
+								</select>
+							</div>
+						</div>
+
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+							referrerpolicy="no-referrer"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+						<script>
+							const host = "https://provinces.open-api.vn/api/";
+							var callAPI = (api) => {
+								return axios.get(api)
+									.then((response) => {
+										renderData(response.data, "province");
+									});
+							}
+							callAPI('https://provinces.open-api.vn/api/?depth=1');
+							var callApiDistrict = (api) => {
+								return axios.get(api)
+									.then((response) => {
+										renderData(response.data.districts, "district");
+									});
+							}
+							var callApiWard = (api) => {
+								return axios.get(api)
+									.then((response) => {
+										renderData(response.data.wards, "ward");
+									});
+							}
+
+							var renderData = (array, select) => {
+								let row = ' <option disable value="">Chọn</option>';
+								array.forEach(element => {
+									row += `<option data-id="${element.code}" value="${element.name}">${element.name}</option>`
+								});
+								document.querySelector("#" + select).innerHTML = row
+							}
+
+							$("#province").change(() => {
+								callApiDistrict(host + "p/" + $("#province").find(':selected').data('id') + "?depth=2");
+								printResult();
+							});
+							$("#district").change(() => {
+								callApiWard(host + "d/" + $("#district").find(':selected').data('id') + "?depth=2");
+								printResult();
+							});
+							$("#ward").change(() => {
+								printResult();
+							})
+
+							var printResult = () => {
+								if ($("#district").find(':selected').data('id') != "" && $("#province").find(':selected').data('id') != "" &&
+									$("#ward").find(':selected').data('id') != "") {
+									let result = $("#province option:selected").text() +
+										" | " + $("#district option:selected").text() + " | " +
+										$("#ward option:selected").text();
+									$("#result").text(result)
+								}
+
+							}
+						</script>
+						</fieldset>
+					<div class="buttons clearfix">
+						<div class="pull-left">
+							<a th:href="@{/account/address}" class="btn btn-default">Trở
+								lại</a>
+						</div>
+						<div class="pull-right">
+							<button type="submit" class="btn btn-info col-2"> Lưu địa chỉ</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</main>
+</body>
+<th:block id="material">
+</th:block>
+
+</html>

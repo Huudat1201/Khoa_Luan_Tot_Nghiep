@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{|/danh-sach/${inforCategory.Namesearch}|}">[[${inforCategory.name}]]</a></li>
+		</ul>
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/list/refine_search.html"></div>
+	</th:block>
+
+	<main>
+		<form id="formPage" action="" method="get">
+			<div th:replace="/user/list/list_product.html"></div>
+		</form>
+	</main>
+
+</body>
+<th:block id="material">
+	<script src="/assets/user/javascript/list-product.js"></script>
+</th:block>
+</html>
